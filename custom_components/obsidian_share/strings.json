@@ -27,7 +27,7 @@
           "external_url": "External address for links"
         },
         "data_description": {
-          "external_url": "Leave empty to use Home Assistant's external URL (e.g. https://ha.example.com)."
+          "external_url": "Leave empty to use the external URL configured in Home Assistant."
         }
       }
     }
