@@ -1,0 +1,14 @@
+{
+  "domain": "obsidian_share",
+  "name": "Obsidian Share",
+  "codeowners": ["@kleinhansda"],
+  "config_flow": true,
+  "dependencies": ["http", "frontend", "panel_custom"],
+  "documentation": "https://github.com/kleinhansda/obsidian-share-ha",
+  "integration_type": "service",
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/kleinhansda/obsidian-share-ha/issues",
+  "requirements": ["markdown-it-py>=3.0.0", "mdit-py-plugins>=0.4.0"],
+  "single_config_entry": true,
+  "version": "0.2.0"
+}

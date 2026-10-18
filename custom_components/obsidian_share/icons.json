@@ -1,0 +1,6 @@
+{
+  "services": {
+    "get_link": { "service": "mdi:link-variant" },
+    "rotate_key": { "service": "mdi:key-change" }
+  }
+}
