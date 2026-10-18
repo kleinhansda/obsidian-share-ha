@@ -1,0 +1,66 @@
+{
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Obsidian Share ist bereits eingerichtet."
+    },
+    "error": {
+      "not_found": "Ordner nicht gefunden."
+    },
+    "step": {
+      "user": {
+        "title": "Obsidian Share",
+        "description": "Pfad zum Obsidian-Vault auf dem Home-Assistant-Host.",
+        "data": {
+          "vault_path": "Vault-Pfad"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rechte und Link-Adresse",
+        "description": "Administratoren dürfen immer alles. Alle anderen Nutzer haben ohne Eintrag keinen Zugriff.",
+        "data": {
+          "editors": "Dürfen bearbeiten und freigeben",
+          "readers": "Dürfen nur lesen",
+          "external_url": "Externe Adresse für Links"
+        },
+        "data_description": {
+          "external_url": "Leer lassen, um die externe URL von Home Assistant zu verwenden (z. B. https://ha.example.com)."
+        }
+      }
+    }
+  },
+  "services": {
+    "get_link": {
+      "name": "Freigabe-Link erzeugen",
+      "description": "Erzeugt einen öffentlichen Lese-Link für eine Notiz mit ha_share: true.",
+      "fields": {
+        "path": {
+          "name": "Notizpfad",
+          "description": "Pfad relativ zum Vault, inklusive .md."
+        },
+        "days": {
+          "name": "Gültigkeit",
+          "description": "Tage bis zum Ablauf. Leer = unbegrenzt."
+        }
+      }
+    },
+    "rotate_key": {
+      "name": "Alle Links widerrufen",
+      "description": "Erzeugt einen neuen Schlüssel. Alle bisher verschickten Links werden sofort ungültig."
+    }
+  },
+  "exceptions": {
+    "not_loaded": {
+      "message": "Obsidian Share ist nicht geladen."
+    },
+    "note_not_found": {
+      "message": "Notiz nicht gefunden: {path}"
+    },
+    "note_not_shared": {
+      "message": "Notiz ist nicht freigegeben (ha_share: true fehlt): {path}"
+    }
+  }
+}

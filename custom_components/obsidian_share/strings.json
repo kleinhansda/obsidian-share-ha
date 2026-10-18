@@ -1,0 +1,66 @@
+{
+  "config": {
+    "abort": {
+      "single_instance_allowed": "Obsidian Share is already configured."
+    },
+    "error": {
+      "not_found": "Folder not found."
+    },
+    "step": {
+      "user": {
+        "title": "Obsidian Share",
+        "description": "Path to the Obsidian vault on the Home Assistant host.",
+        "data": {
+          "vault_path": "Vault path"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Permissions and link address",
+        "description": "Administrators can always do everything. All other users have no access unless listed.",
+        "data": {
+          "editors": "Can edit and share",
+          "readers": "Read only",
+          "external_url": "External address for links"
+        },
+        "data_description": {
+          "external_url": "Leave empty to use Home Assistant's external URL (e.g. https://ha.example.com)."
+        }
+      }
+    }
+  },
+  "services": {
+    "get_link": {
+      "name": "Create share link",
+      "description": "Creates a public read-only link for a note with ha_share: true.",
+      "fields": {
+        "path": {
+          "name": "Note path",
+          "description": "Path relative to the vault, including .md."
+        },
+        "days": {
+          "name": "Validity",
+          "description": "Days until the link expires. Empty = no expiry."
+        }
+      }
+    },
+    "rotate_key": {
+      "name": "Revoke all links",
+      "description": "Generates a new key. All previously shared links become invalid immediately."
+    }
+  },
+  "exceptions": {
+    "not_loaded": {
+      "message": "Obsidian Share is not loaded."
+    },
+    "note_not_found": {
+      "message": "Note not found: {path}"
+    },
+    "note_not_shared": {
+      "message": "Note is not shared (ha_share: true missing): {path}"
+    }
+  }
+}
